@@ -1,0 +1,102 @@
+@import '../font/iconfont.scss';
+@import './varibale.scss';
+@import './mixin.scss';
+
+// 公共样式
+// 循环生成fz-10到fz-100
+@for $i from 10 through 100 {
+    .fz-#{$i} {
+        font-size: #{$i}px !important;
+    }
+}
+
+// 多行省略
+@for $i from 1 through 10 {
+    .ellipsis-line-#{$i} {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: #{$i};
+    }
+}
+
+// 循环生成mar-top2到30
+@for $i from 2 through 60 {
+    .mar-top-#{$i} {
+        margin-top: #{$i}px !important;
+    }
+    .mar-left-#{$i} {
+        margin-left: #{$i}px !important;
+    }
+    .mar-right-#{$i} {
+        margin-right: #{$i}px !important;
+    }
+    .mar-bottom-#{$i} {
+        margin-bottom: #{$i}px !important;
+    }
+
+    .pad-top-#{$i} {
+        padding-top: #{$i}px !important;
+    }
+    .pad-left-#{$i} {
+        padding-left: #{$i}px !important;
+    }
+    .pad-right-#{$i} {
+        padding-right: #{$i}px !important;
+    }
+    .pad-bottom-#{$i} {
+        padding-bottom: #{$i}px !important;
+    }
+}
+
+// 字重
+.fb-500 {
+    font-weight: 500 !important;
+}
+.fb-600 {
+    font-weight: bold !important;
+}
+.fb-bold{
+    font-weight: bold !important;
+}
+
+//flex 常用
+.flex_layout {
+    @include flexBox(flex-start, center);
+}
+.flex_layout_c {
+    @include flexBox(center, center);
+}
+.flex_layout_e {
+    @include flexBox(flex-end, center);
+}
+.flex_layout_b {
+    @include flexBox(space-between, center);
+}
+.flex_layout_a {
+    @include flexBox(space-around, center);
+}
+.flex_layout_w {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.flex_layout_n {
+    @include flexBox(center, center);
+    flex-direction: column;
+}
+.flex_layout_co {
+    @include flexBox(flex-start, center);
+    flex-direction: column;
+}
+.flex_layout_o_c {
+    @include flexBox(center, center);
+    flex-direction: column;
+}
+
+.el-button--danger-important {
+    color: #FFF;
+    background-color: #F56C6C;
+    border-color: #F56C6C;
+}
