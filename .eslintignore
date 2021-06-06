@@ -1,0 +1,8 @@
+build/*.js
+src/assets
+public
+dist
+src/village/views/map.vue
+node_modules/*
+yarn.lock
+package-lock.json
