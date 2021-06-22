@@ -40,8 +40,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    import { secretHeaders } from '@/util/util';
+    import { uploadQiniu } from '@/util/qiniuUpload';
 
     export default {
         name: 'ImageUpload',
@@ -54,7 +53,6 @@
         data() {
             return {
                 input: '',
-                actionURL: process.env.VUE_APP_UPLOAD_API,
                 errTip: ''
             };
         },
@@ -118,16 +116,11 @@
                 // 通过append向form对象添加数据
                 param.append('file', files, files.name);
 
-                const header = { 'Content-Type': 'multipart/form-data', ...secretHeaders };
-
-                const res = await axios.request({
-                    url: this.actionURL,
-                    method: 'post',
-                    data: param,
-                    headers: header
-                });
+                const key = `image_${new Date().getTime()}`
+                const res = await uploadQiniu(files, key);
+                console.log(res);
                 // 将数据添加到输入框
-                this.input = res.data.data.url;
+                this.input = `http://imgcdnstatic.top/${res.key}`;
                 this.$emit('update:value', this.input);
                 this.$emit('change', this.input);
                 // 清楚选中框里的值
