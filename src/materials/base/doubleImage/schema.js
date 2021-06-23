@@ -1,8 +1,8 @@
 export default {
     config:{
-        srcLeft: 'https://imgcdn.huanjutang.com/image/2021/05/13/3ee1277da10dc513b19730349fd7cb89.png',
+        srcLeft: 'http://imgcdnstatic.top/image_1624455482931',
         schemaUrlLeft: '',
-        srcRight: 'https://imgcdn.huanjutang.com/image/2021/05/13/3ee1277da10dc513b19730349fd7cb89.png',
+        srcRight: 'http://imgcdnstatic.top/image_1624455627345',
         schemaUrlRight: ''
     },
     editorData:[
@@ -10,7 +10,7 @@ export default {
             type: 'ImgUpload',
             field: 'srcLeft',
             title: '左侧图片',
-            value: 'https://imgcdn.huanjutang.com/image/2021/05/12/3fb92167b17eede336ebe415ea772ea0.png',
+            value: 'http://imgcdnstatic.top/image_1624455482931',
             emit: ['change'],
             emitPrefix: 'src-left'
         },
@@ -26,7 +26,7 @@ export default {
             type: 'ImgUpload',
             field: 'srcRight',
             title: '右侧图片',
-            value: 'https://imgcdn.huanjutang.com/image/2021/05/12/3fb92167b17eede336ebe415ea772ea0.png',
+            value: 'http://imgcdnstatic.top/image_1624455627345',
             emit: ['change'],
             emitPrefix: 'src-right'
         },

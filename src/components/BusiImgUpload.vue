@@ -102,6 +102,7 @@
                     && fileName != 'pdf'
                     && fileName != 'png'
                     && fileName != 'dwg'
+                    && fileName != 'webp'
                     && fileName != 'gif') {
                     this.errTip = '请选择图片格式文件上传(jpg,png,gif,dwg,pdf,gif等)！';
                     this.clearValue();
@@ -111,14 +112,8 @@
             },
             // 上传服务器
             async xhrUpload(files) {
-                // 创建form对象,将文件内容添加到form对象中
-                const param = new FormData();
-                // 通过append向form对象添加数据
-                param.append('file', files, files.name);
-
                 const key = `image_${new Date().getTime()}`
                 const res = await uploadQiniu(files, key);
-                console.log(res);
                 // 将数据添加到输入框
                 this.input = `http://imgcdnstatic.top/${res.key}`;
                 this.$emit('update:value', this.input);

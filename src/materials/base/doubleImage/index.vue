@@ -37,7 +37,7 @@
             },
             srcLeft: {
                 type: String,
-                default: 'https://imgcdn.huanjutang.com/image/2021/05/13/3ee1277da10dc513b19730349fd7cb89.png'
+                default: 'http://imgcdnstatic.top/image_1624455482931'
             },
             schemaUrlLeft: {
                 type: String,
@@ -45,7 +45,7 @@
             },
             srcRight: {
                 type: String,
-                default: 'https://imgcdn.huanjutang.com/image/2021/05/12/3fb92167b17eede336ebe415ea772ea0.png'
+                default: 'http://imgcdnstatic.top/image_1624455627345'
             },
             schemaUrlRight: {
                 type: String,

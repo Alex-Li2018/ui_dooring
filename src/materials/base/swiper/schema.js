@@ -3,17 +3,17 @@ export default {
         items: [
             {
                 id: 1,
-                src: 'https://imgcdn.huanjutang.com/image/2021/05/12/3fb92167b17eede336ebe415ea772ea0.png',
+                src: 'http://imgcdnstatic.top/image_1624456129895',
                 schemaUrl: '' 
             },
             {
                 id: 2,
-                src: 'https://imgcdn.huanjutang.com/image/2021/05/13/8e701812a0e19b238fa7abbc7102f022.png',
+                src: 'http://imgcdnstatic.top/image_1624456161258',
                 schemaUrl: ''
             },
             {
                 id: 3,
-                src: 'https://imgcdn.huanjutang.com/image/2021/05/13/b7b7ea92a1b04778416a69868431c280.png',
+                src: 'http://imgcdnstatic.top/image_1624456212269',
                 schemaUrl: ''
             }
         ],
@@ -26,12 +26,17 @@ export default {
             value: [
                 {
                     id: 1,
-                    src: 'https://imgcdn.huanjutang.com/image/2021/05/12/3fb92167b17eede336ebe415ea772ea0.png',
+                    src: 'http://imgcdnstatic.top/image_1624456129895',
                     schemaUrl: '' 
                 },
                 {
                     id: 2,
-                    src: 'https://imgcdn.huanjutang.com/image/2021/05/13/8e701812a0e19b238fa7abbc7102f022.png',
+                    src: 'http://imgcdnstatic.top/image_1624456161258',
+                    schemaUrl: ''
+                },
+                {
+                    id: 3,
+                    src: 'http://imgcdnstatic.top/image_1624456212269',
                     schemaUrl: ''
                 }
             ],

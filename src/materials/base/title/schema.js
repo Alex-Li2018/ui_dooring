@@ -4,7 +4,7 @@ export default {
         fontSize: 22,
         color: '#303133',
         fontWeight: 500,
-        text: '2020成都公办高中录取线排名前都公办高中录取线排名前',
+        text: '我是一段标题哈哈哈哈哈哈',
         textAlign: 'center',
         schemaUrl: ''
     },
@@ -45,7 +45,7 @@ export default {
             type: 'Input',
             field: 'text',
             title: '按钮文案',
-            value: '2020成都公办高中录取线排名前都公办高中录取线排名前',
+            value: '我是一段标题哈哈哈哈哈哈',
             emit: ['change'],
             emitPrefix: 'text'
         },

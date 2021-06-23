@@ -1,6 +1,6 @@
 export default {
     config:{
-        src: 'https://imgcdn.huanjutang.com/image/2021/05/12/3fb92167b17eede336ebe415ea772ea0.png',
+        src: 'http://imgcdnstatic.top/image_1624454703071',
         schemaUrl: ''
     },
     editorData:[
@@ -8,7 +8,7 @@ export default {
             type: 'ImgUpload',
             field: 'src',
             title: '图片地址',
-            value: 'https://imgcdn.huanjutang.com/image/2021/05/12/3fb92167b17eede336ebe415ea772ea0.png',
+            value: 'http://imgcdnstatic.top/image_1624454703071',
             emit: ['change'],
             emitPrefix: 'src'
         },

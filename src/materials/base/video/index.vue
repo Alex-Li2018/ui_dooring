@@ -49,11 +49,11 @@
             },
             src: {
                 type: String,
-                default: 'https://imgcdn.huanjutang.com/video/2020/12/01/039f99814de75ef8713dfe84621c91d5.mp4'
+                default: 'http://imgcdnstatic.top/image_1624456710477'
             },
             poster: {
                 type: String,
-                default: 'https://imgcdn.huanjutang.com/video/2020/12/01/039f99814de75ef8713dfe84621c91d5.mp4?vframe/jpg/offset/1&imageView2/2/w/500/format/jpg/interlace/1/q/100|imageslim'
+                default: 'http://imgcdnstatic.top/image_1624456628188'
             },
             width: {
                 type: [Number, String],

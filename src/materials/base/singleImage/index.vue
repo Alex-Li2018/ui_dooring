@@ -33,7 +33,7 @@
             },
             src: {
                 type: String,
-                default: 'https://imgcdn.huanjutang.com/image/2021/05/12/3fb92167b17eede336ebe415ea772ea0.png'
+                default: 'http://imgcdnstatic.top/image_1624454703071'
             },
             schemaUrl: {
                 type: String,
