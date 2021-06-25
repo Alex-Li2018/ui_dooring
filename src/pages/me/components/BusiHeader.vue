@@ -9,7 +9,7 @@
             class="right_box flex_layout"
         >
             <template v-if="userInfo.id">
-                <div class="user_wrap flex_layout">
+                <div class="user_wrap flex_layout cursor">
                     <span class="name_wrap mar-right-16">Hi, {{ userInfo.name }}</span>
                     <span class="logout_wrap">退出</span>
                 </div>

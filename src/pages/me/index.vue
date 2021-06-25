@@ -3,7 +3,26 @@
         <BusiHeader />
         <div class="blank_wrap" />
         <div class="container_wrap">
-            <BusiTitle title="我的页面" /> 
+            <BusiTitle title="我的页面" />
+            <div class="search_wrap flex_layout">
+                <el-button 
+                    @click="jumpUrl" 
+                    type="primary"
+                    class="mar-right-20">
+                    添加页面
+                </el-button>
+                <el-input 
+                    placeholder="请输入内容" 
+                    v-model="params.keyword" 
+                    @click.native="handlerSearch"
+                >
+                    <el-button 
+                        slot="append" 
+                        icon="el-icon-search"
+                        @click="handlerSearch"
+                    />
+                </el-input>
+            </div>
             <el-table
                 :data="tableData.lists"
                 style="width: 100%"
@@ -16,7 +35,15 @@
                 <el-table-column
                     prop="name"
                     label="名称"
-                />
+                >
+                    <template slot-scope="{ row }">
+                        <div 
+                            @click="handleEditor(row)" 
+                            class="ui-link">
+                            {{ row.name }}
+                        </div>
+                    </template>
+                </el-table-column>
                 <el-table-column
                     label="操作"
                     width="100"
@@ -25,6 +52,7 @@
                         <el-button
                             type="text"
                             size="small"
+                            class="danger"
                             @click="handleDelete(scope.row)"
                         >
                             删除
@@ -71,6 +99,7 @@
                     total: null
                 },
                 params: {
+                    keyword: '',
                     page: 1,
                     page_size: 10
                 }
@@ -119,6 +148,15 @@
                         id
                     }
                 });
+            },
+            handlerSearch() {
+                this.params.page = 1;
+                this.loadData();
+            },
+            jumpUrl() {
+                this.$router.push({
+                    path: '/editor'
+                });
             }
         }
     };
@@ -134,5 +172,9 @@
         padding: 0 40px;
         box-sizing: border-box;
     }
+}
+.search_wrap {
+    width: 500px;
+    margin-top: 20px;
 }
 </style>

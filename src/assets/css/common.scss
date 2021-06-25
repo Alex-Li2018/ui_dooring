@@ -100,3 +100,19 @@
     background-color: #F56C6C;
     border-color: #F56C6C;
 }
+
+// 链接样式
+.ui-link {
+	color: #409EFF;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+// 鼠标样式
+.cursor {
+    cursor: pointer;
+}
+
+.danger {
+    color: #f56c6c !important;
+}

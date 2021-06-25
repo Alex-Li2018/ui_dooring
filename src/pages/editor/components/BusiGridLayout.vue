@@ -77,6 +77,7 @@
             :left="left"
             :top="top"
             @on-delete="handlerDelete"
+            @on-copy="handlerCopy"
         />
     </div>
 </template>
@@ -159,28 +160,7 @@
             });
             // 新增layout
             this.$bus.on('add-layout', (res) => {
-                const comSchema = cloneForce(schema[res.name]);
-                // i 为唯一表示符
-                res.i = `${res.name}-${this.uiLayout.length + 1}`;
-                
-                const y = this.uiLayout.reduce(function(total, current) {
-                    return total += current.h;
-                }, 0);
-
-                this.uiLayout.push({
-                    i: res.i,
-                    x: res.x,
-                    y: y,
-                    w: res.w,
-                    h: res.h,
-                    name: res.name,
-                    name_ch: res.name_ch,
-                    app: res.app,
-                    comProps: cloneForce(comSchema.config)
-                });
-                // 处理右侧栏可编辑表单数据
-                this.setRightDrwerData(comSchema, res);
-                this.setUILayout(this.uiLayout);
+                this.handlerCreate(res);
             });
             // 按个layout数据更新
             this.$bus.on('update-layout', (res) => {
@@ -307,6 +287,38 @@
                 }  
                 this.setShowDrawer(false);              
             },
+            handlerCopy(index) {
+                console.log(index);
+                const arr = this.uiLayout.filter(item => item.i === index);
+                console.log(arr);
+                if (arr.length) {
+                    this.handlerCreate(arr[0]);
+                }
+            },
+            handlerCreate(res) {
+                const comSchema = cloneForce(schema[res.name]);
+                // i 为唯一表示符
+                res.i = `${res.name}-${this.uiLayout.length + 1}`;
+                
+                const y = this.uiLayout.reduce(function(total, current) {
+                    return total += current.h;
+                }, 0);
+
+                this.uiLayout.push({
+                    i: res.i,
+                    x: res.x,
+                    y: y,
+                    w: res.w,
+                    h: res.h,
+                    name: res.name,
+                    name_ch: res.name_ch,
+                    app: res.app,
+                    comProps: cloneForce(comSchema.config)
+                });
+                // 处理右侧栏可编辑表单数据
+                this.setRightDrwerData(comSchema, res);
+                this.setUILayout(this.uiLayout);
+            },
             layoutUpdatedEvent() {
                 this.uiLayout.length && this.setUILayout(this.uiLayout);
             },
@@ -321,30 +333,30 @@
 </script>
 
 <style lang="scss">
-    .grid-layout_wrap {
-        min-height: 812px;
-        position: relative;
-        .fixed_layout {
-            width: 100%;
-            height: 80px;
-            cursor: pointer;
-            .fixed_wrap {
-                width: 100%;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-            }
-        }
-    }
-    .hoverStyle {
-        &:hover {
-            border: 1px solid #1478FF;
-            box-sizing: border-box;
-        }
-    }
-    .com-layout-outer {
+.grid-layout_wrap {
+    min-height: 812px;
+    position: relative;
+    .fixed_layout {
         width: 100%;
-        height: 100%;
-        overflow: hidden;
+        height: 80px;
+        cursor: pointer;
+        .fixed_wrap {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
     }
+}
+.hoverStyle {
+    &:hover {
+        border: 1px solid #1478FF;
+        box-sizing: border-box;
+    }
+}
+.com-layout-outer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 </style>

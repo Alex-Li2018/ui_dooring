@@ -11,9 +11,12 @@
         >
             删除
         </div>
-        <!-- <div class="react-contexify-item">
-                复制
-            </div> -->
+        <div 
+            @click="Handlercopy" 
+            class="react-contexify-item"
+        >
+            复制
+        </div>
     </div>
 </template>
 
@@ -44,6 +47,10 @@
             handlerDelete() {
                 this.$emit('update:ishow', false);
                 this.$emit('on-delete', this.uniqueKey);
+            },
+            Handlercopy() {
+                this.$emit('update:ishow', false);
+                this.$emit('on-copy', this.uniqueKey);
             }
         }
     };

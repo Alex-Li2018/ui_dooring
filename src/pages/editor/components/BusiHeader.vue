@@ -114,7 +114,7 @@
                     });
                 }
                 
-                res.code === 0 && this.$notify({
+                res.code === 200 && this.$notify({
                     title: '成功',
                     message: '保存成功!',
                     type: 'success'
@@ -157,6 +157,12 @@
         }
     };
 </script>
+
+<style lang="scss">
+.el-notification {
+    z-index: 2200 !important;
+}
+</style>
 
 <style lang="scss" scoped>
 .header_wrap {

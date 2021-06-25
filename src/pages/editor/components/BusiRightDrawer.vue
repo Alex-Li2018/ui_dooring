@@ -24,7 +24,6 @@
 </template>
 
 <script>
-    import { cloneForce } from '@/util/cloneDeep';
     import formCreate from '@form-create/element-ui';
     import BusiImgUpload from '@/components/BusiImgUpload.vue';
     import BusiVideoUpload from '@/components/BusiVideoUpload.vue';
@@ -259,7 +258,7 @@
                 this.emitUpdateLayout();
             },
             swiperChange(swipers) {
-                this.value.items = cloneForce(swipers);
+                this.value.items = swipers;
                 this.emitUpdateLayout();
             },
             richEditorChange(content) {
