@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Message } from 'element-ui';
-import { secretHeaders } from '@/util/util';
+import { uploadQiniu } from '@/util/qiniuUpload';
 
 const actionURL = process.env.VUE_APP_UPLOAD_API;
 
@@ -40,23 +40,14 @@ function beforeUpload(files) {
 
 // 上传服务器
 async function xhrUpload(files, quillRef) {
-    // 创建form对象,将文件内容添加到form对象中
-    const param = new FormData();
-    // 通过append向form对象添加数据
-    param.append('file', files, files.name);
-
-    const header = { 'Content-Type': 'multipart/form-data', ...secretHeaders };
-
-    const res = await axios.request({
-        url: actionURL,
-        method: 'post',
-        data: param,
-        headers: header
-    });
+    const key = `image_${new Date().getTime()}`;
+    const res = await uploadQiniu(files, key);
+    // 将数据添加到输入框
+    const url = `http://imgcdnstatic.top/${res.key}`;
 
     const length = quillRef.quill.getSelection(true).index;
     // 这里很重要，你图片上传成功后，img的src需要在这里添加，res.path就是你服务器返回的图片链接。
-    quillRef.quill.insertEmbed(length, 'image', res.data.data.url);
+    quillRef.quill.insertEmbed(length, 'image', url);
     quillRef.quill.setSelection(length + 1);
 }
 
