@@ -86,12 +86,15 @@
     import busiApi from '@/api/busi';
     import { mapMutations } from 'vuex';
     import schema from '@/materials/schema';
-    import VueGridLayout from 'vue-grid-layout';
+    import Stack from '@/util/javascript-algorithms/Stack';
     import { cloneForce } from '@/util/cloneDeep';
+    import VueGridLayout from 'vue-grid-layout';
     import Clickoutside from 'element-ui/src/utils/clickoutside';
     import BusiComLayout from './BusiComLayout.vue';
     import BusiMouseRight from './BusiMouseRight.vue';
+    
 
+    let $stackForward, $stackBack;
     export default {
         components: {
             GridLayout: VueGridLayout.GridLayout,
@@ -128,8 +131,15 @@
             }
         },
         created() {
+            $stackForward = new Stack();
+            $stackBack = new Stack();
             this.id = this.$route.query.id;
-            this.id && this.loadData();
+            if (this.id) {
+                this.loadData();
+            } else {
+                this.uiLayout = [];
+                this.setLinkData(this.uiLayout);
+            }
         },
         mounted() {
             // 固定的layout
@@ -162,7 +172,7 @@
             this.$bus.on('add-layout', (res) => {
                 this.handlerCreate(res);
             });
-            // 按个layout数据更新
+            // 单个layout数据更新
             this.$bus.on('update-layout', (res) => {
                 if (!res.key.includes('fixed')) {
                     this.uiLayout.forEach(item => {
@@ -172,6 +182,8 @@
                     });
 
                     this.setUILayout(this.uiLayout);
+                    // 只对uiLayout做前进后退的操作
+                    this.setLinkData(this.uiLayout);
                 } else {
                     // 更新固定定位的组件
                     this.fixLayout.forEach(item => {
@@ -186,11 +198,15 @@
             this.$bus.on('operate-Layout', (res) => {
                 switch(res) {
                 case 'previous':
+                    this.handlerPrevious();
                     break;
                 case 'next':
+                    this.handlerNext();
                     break;
                 case 'clear':
                     this.uiLayout = [];
+                    // 只对uiLayout做前进后退的操作
+                    this.setLinkData(this.uiLayout);
                     break;
                 default:
                     break;
@@ -252,6 +268,9 @@
                 }));
                 this.setUILayout(this.uiLayout);
 
+                // 只对uiLayout做前进后退的操作
+                this.setLinkData(this.uiLayout);
+
                 const fixedMaterial = data?.content?.fixed_material || [];
                 this.fixLayout = fixedMaterial.map((item, index) => ({
                     id: index, 
@@ -281,6 +300,8 @@
                     // 删除对应的元素
                     const index = this.uiLayout.findIndex(item => item.i === key);
                     this.uiLayout.splice(index, 1);
+                    // 只对uiLayout做前进后退的操作
+                    this.setLinkData(this.uiLayout);
                 } else {
                     const index = this.fixLayout.findIndex(item => item.i === key);
                     this.fixLayout.splice(index, 1);
@@ -288,9 +309,7 @@
                 this.setShowDrawer(false);              
             },
             handlerCopy(index) {
-                console.log(index);
                 const arr = this.uiLayout.filter(item => item.i === index);
-                console.log(arr);
                 if (arr.length) {
                     this.handlerCreate(arr[0]);
                 }
@@ -318,6 +337,8 @@
                 // 处理右侧栏可编辑表单数据
                 this.setRightDrwerData(comSchema, res);
                 this.setUILayout(this.uiLayout);
+                // 只对uiLayout做前进后退的操作
+                this.setLinkData(this.uiLayout);
             },
             layoutUpdatedEvent() {
                 this.uiLayout.length && this.setUILayout(this.uiLayout);
@@ -327,6 +348,29 @@
                 this.setEditorData(cloneForce(comSchema.editorData));
                 this.setUniquekey(res.i);
                 this.setShowDrawer(true);
+            },
+            // 上一步
+            handlerPrevious() {
+                const arr = $stackForward.toArray();
+                if (arr.length > 1) {
+                    const uiLayout = $stackForward.pop();
+                    if ($stackForward.peek()) {
+                        this.uiLayout = $stackForward.peek();
+                        $stackBack.push(uiLayout);  
+                    }
+                }
+            },
+            // 下一步
+            handlerNext() {
+                const uiLayout = $stackBack.pop();
+                if (uiLayout) {
+                    this.uiLayout = uiLayout;
+                    $stackForward.push(uiLayout);  
+                }
+            },
+            // 设置队列数据
+            setLinkData(data) {
+                $stackForward.push(cloneForce(data));
             }
         }
     };

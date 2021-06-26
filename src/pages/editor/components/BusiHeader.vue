@@ -15,7 +15,7 @@
                 class="iconfont iconyulan icon"
                 title="预览"
             /> -->
-            <!-- <span
+            <span
                 class="iconfont iconshangyibu icon"
                 title="上一步"
                 @click="previous"
@@ -24,7 +24,7 @@
                 class="iconfont iconxiayibu icon"
                 title="下一步"
                 @click="next"
-            /> -->
+            />
             <span
                 class="iconfont iconqingkongshanchu icon"
                 title="清空"
