@@ -11,10 +11,11 @@
                 title="保存"
                 @click="save"
             />
-            <!-- <span
+            <span
                 class="iconfont iconyulan icon"
                 title="预览"
-            /> -->
+                @click="preview"
+            />
             <span
                 class="iconfont iconshangyibu icon"
                 title="上一步"
@@ -128,6 +129,9 @@
             },
             clear() {
                 this.$bus.emit('operate-Layout', 'clear');
+            },
+            preview() {
+                
             },
             handleCommand(command) {
                 switch(command) {
