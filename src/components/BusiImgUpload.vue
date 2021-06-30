@@ -112,7 +112,9 @@
             },
             // 上传服务器
             async xhrUpload(files) {
-                const key = `image_${new Date().getTime()}`;
+                const { name } = files;
+                const fileName = name.substring(name.lastIndexOf('.') + 1).toLowerCase();
+                const key = `image_${new Date().getTime()}.${fileName}`;
                 const res = await uploadQiniu(files, key);
                 // 将数据添加到输入框
                 this.input = `http://imgcdnstatic.top/${res.key}`;

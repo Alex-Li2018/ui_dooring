@@ -22,8 +22,8 @@
     "js-cookie": "^2.2.1",
     "js-md5": "^0.7.3",
     "pubsub-js": "^1.9.3",
-    "qrcodejs2": "^0.0.2",
     "qiniu-js": "^3.3.1",
+    "qrcodejs2": "^0.0.2",
     "vue": "^2.6.11",
     "vue-grid-layout": "^2.3.12",
     "vue-quill-editor": "^3.0.6",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
     "@babel/register": "7.0.0",
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",

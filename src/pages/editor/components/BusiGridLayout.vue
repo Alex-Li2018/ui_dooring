@@ -205,6 +205,8 @@
                     break;
                 case 'clear':
                     this.uiLayout = [];
+                    // 关闭右侧栏
+                    this.setShowDrawer(false);
                     // 只对uiLayout做前进后退的操作
                     this.setLinkData(this.uiLayout);
                     break;
@@ -243,7 +245,6 @@
                 const obj = {
                     'button': () => import('@/materials/fixed/button'),
                     'doubleButton': () => import('@/materials/fixed/doubleButton'),
-                    
                     'swiper': () => import('@/materials/base/swiper'),
                     'singleImage': () => import('@/materials/base/singleImage'),
                     'doubleImage': () => import('@/materials/base/doubleImage'),
@@ -351,6 +352,7 @@
             },
             // 上一步
             handlerPrevious() {
+                this.setShowDrawer(false);
                 const arr = $stackForward.toArray();
                 if (arr.length > 1) {
                     const uiLayout = $stackForward.pop();
@@ -362,6 +364,7 @@
             },
             // 下一步
             handlerNext() {
+                this.setShowDrawer(false);
                 const uiLayout = $stackBack.pop();
                 if (uiLayout) {
                     this.uiLayout = uiLayout;

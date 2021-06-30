@@ -41,7 +41,7 @@
             >
                 页面设置
             </span>
-            <template v-if="userInfo.id">
+            <template v-if="userInfo && userInfo.id">
                 <el-dropdown @command="handleCommand">
                     <div class="user_wrap flex_layout">
                         <span class="avatar_wrap mar-right-6">{{ userInfo.name }}</span>
@@ -86,7 +86,7 @@
         computed: {
             // 箭头函数可使代码更简练
             userInfo() {
-                if (this.$store.state.setting.userInfo.id) {
+                if (this.$store.state.setting?.userInfo?.id) {
                     return this.$store.state.setting.userInfo;
                 } else {
                     return cache.get('userInfo');
