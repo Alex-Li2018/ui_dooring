@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="bottom_wrap" @click="jumplink">© Copyright - Ui Dooring</div>
+        <div class="bottom_wrap" @click="jumplink">© Copyright - Ui Dooring 蜀ICP备2021006935号-3</div>
     </div>
 </template>
 

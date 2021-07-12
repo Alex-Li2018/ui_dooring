@@ -13,7 +13,7 @@ module.exports = {
         },
         proxy: {
             '/api': {
-                target: 'http://127.0.0.1:5000/v1',
+                target: 'https://www.task-api.top/v1',
                 changeOrigin: true,
                 secure: true,
                 pathRewrite: {
