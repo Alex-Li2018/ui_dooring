@@ -5,6 +5,9 @@
 
 > UI Dooring是一款功能强大，专业可靠的H5/小程序可视化页面配置解决方案，致力于提供一套简单方便、专业可靠、无限可能的H5/小程序落地页最佳实践。技术栈以vue为主,配置页面所见即所得。
 
+### 体验地址
+[ui dooring](http://www.uidooring.cn)
+
 ### 功能截图
 ![](./src/assets/readme/example.jpg)
 
