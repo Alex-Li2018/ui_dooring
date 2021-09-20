@@ -1,9 +1,9 @@
 export default {
-    config:{
+    config: {
         backgroundColor: '#BFC2CC',
         text: '提示文本最多提示文本最多提15字'
     },
-    editorData:[
+    editorData: [
         {
             type: 'ColorPicker',
             field: 'backgroundColor',

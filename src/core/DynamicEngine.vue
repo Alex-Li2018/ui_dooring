@@ -5,7 +5,7 @@
             active: isActive,
             move: isCursor
         }"
-        @mouseover="handlerMouseOver" 
+        @mouseover="handlerMouseOver"
         @mouseleave="handlerMouseLeave"
         @click="handlerComponentTap"
     >
@@ -45,7 +45,7 @@
             },
             handlerComponentTap() {
                 // 新增布局的广播
-                const eventName = this.comDetail.category !== 'fixed' ? 'add-layout' : 'fixed-layout';  
+                const eventName = this.comDetail.category !== 'fixed' ? 'add-layout' : 'fixed-layout';
                 this.$bus.emit(eventName, this.comDetail);
             }
         }

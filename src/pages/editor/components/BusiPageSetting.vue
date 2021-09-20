@@ -56,8 +56,8 @@
 </template>
 
 <script>
-    import { cloneForce } from '@/util/cloneDeep';
     import { mapMutations } from 'vuex';
+    import { cloneForce } from '@/util/cloneDeep';
     import BusiImgUpload from '@/components/BusiImgUpload.vue';
 
     export default {
@@ -88,7 +88,7 @@
         },
         watch: {
             visible(newVal) {
-                this.dialogVisible= newVal;
+                this.dialogVisible = newVal;
                 if (newVal) {
                     this.form.page_name = this.pageSetting.page_name;
                     this.form.page_desc = this.pageSetting.page_desc;
@@ -114,7 +114,7 @@
             resetForm() {
                 this.dialogVisible = false;
                 this.$emit('update:visible', false);
-                this.$refs['ruleForm'].resetFields();
+                this.$refs.ruleForm.resetFields();
             }
         }
     };

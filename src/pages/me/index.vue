@@ -5,19 +5,20 @@
         <div class="container_wrap">
             <BusiTitle title="我的页面" />
             <div class="search_wrap flex_layout">
-                <el-button 
-                    @click="jumpUrl" 
+                <el-button
                     type="primary"
-                    class="mar-right-20">
+                    class="mar-right-20"
+                    @click="jumpUrl"
+                >
                     添加页面
                 </el-button>
-                <el-input 
-                    placeholder="请输入内容" 
-                    v-model="params.keyword" 
+                <el-input
+                    v-model="params.keyword"
+                    placeholder="请输入内容"
                     @click.native="handlerSearch"
                 >
-                    <el-button 
-                        slot="append" 
+                    <el-button
+                        slot="append"
                         icon="el-icon-search"
                         @click="handlerSearch"
                     />
@@ -37,9 +38,10 @@
                     label="名称"
                 >
                     <template slot-scope="{ row }">
-                        <div 
-                            @click="handleEditor(row)" 
-                            class="ui-link">
+                        <div
+                            class="ui-link"
+                            @click="handleEditor(row)"
+                        >
                             {{ row.name }}
                         </div>
                     </template>
@@ -77,7 +79,7 @@
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
                 />
-            </div> 
+            </div>
         </div>
     </div>
 </template>
@@ -110,7 +112,7 @@
         },
         methods: {
             async loadData() {
-                const {data} = await busiApi.pageList(this.params);
+                const { data } = await busiApi.pageList(this.params);
                 this.tableData.lists = data.lists;
                 this.tableData.total = data.total;
             },
@@ -138,7 +140,7 @@
                     this.$message({
                         type: 'error',
                         message: '已取消删除'
-                    });          
+                    });
                 });
             },
             handleEditor({ id }) {

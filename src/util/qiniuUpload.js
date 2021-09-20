@@ -4,10 +4,10 @@ import axios from 'axios';
 export function getQiniuToken() {
     return new Promise((resolve, reject) => {
         axios('/api/qiniu-token').then(res => {
-            resolve(res.data.data.uploadToken)
+            resolve(res.data.data.uploadToken);
         }).catch(err => {
             reject(err);
-        })
+        });
     });
 }
 
@@ -16,10 +16,10 @@ export function uploadQiniu(file, key) {
         getQiniuToken().then(token => {
             const observable = qiniu.upload(file, key, token);
             observable.subscribe({
-                error(err){
+                error(err) {
                     reject(err);
                 },
-                complete(res){
+                complete(res) {
                     resolve(res);
                 }
             });

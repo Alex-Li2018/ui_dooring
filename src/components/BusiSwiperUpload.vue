@@ -9,7 +9,7 @@
                     v-for="(item, index) in swipers"
                     :key="item.id"
                     class="item"
-                >   
+                >
                     <div class="label">
                         第{{ index + 1 }}张轮播图
                     </div>
@@ -40,8 +40,8 @@
 </template>
 
 <script>
-    import { cloneForce } from '@/util/cloneDeep';
     import vuedraggable from 'vuedraggable';
+    import { cloneForce } from '@/util/cloneDeep';
     import BusiImgUpload from './BusiImgUpload.vue';
 
     export default {
@@ -64,7 +64,7 @@
             value: {
                 immediate: true,
                 handler(newVal) {
-                    this.swipers = cloneForce(newVal); 
+                    this.swipers = cloneForce(newVal);
                 }
             },
             swipers: {
@@ -78,7 +78,7 @@
         methods: {
             handlerAddSwiper() {
                 this.swipers.push({
-                    id: this.swipers.length+ 2,
+                    id: this.swipers.length + 2,
                     src: '',
                     schemaUrl: ''
                 });

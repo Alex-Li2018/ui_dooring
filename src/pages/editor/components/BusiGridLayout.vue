@@ -35,7 +35,7 @@
                     @keyup.delete="handlerDelete"
                     @contextmenu.prevent.stop="rightClickHandler(item, $event)"
                 >
-                    <BusiComLayout 
+                    <BusiComLayout
                         :key="item.i"
                         :uniqueKey="item.i"
                         :app="item.app"
@@ -61,7 +61,7 @@
                 @keyup.delete="handlerDelete"
                 @contextmenu.prevent.stop="rightClickHandler(item, $event)"
             >
-                <BusiComLayout 
+                <BusiComLayout
                     :key="item.i"
                     :uniqueKey="item.i"
                     :app="item.app"
@@ -83,18 +83,18 @@
 </template>
 
 <script>
-    import busiApi from '@/api/busi';
     import { mapMutations } from 'vuex';
+    import VueGridLayout from 'vue-grid-layout';
+    import Clickoutside from 'element-ui/src/utils/clickoutside';
+    import busiApi from '@/api/busi';
     import schema from '@/materials/schema';
     import Stack from '@/util/javascript-algorithms/Stack';
     import { cloneForce } from '@/util/cloneDeep';
-    import VueGridLayout from 'vue-grid-layout';
-    import Clickoutside from 'element-ui/src/utils/clickoutside';
     import BusiComLayout from './BusiComLayout.vue';
     import BusiMouseRight from './BusiMouseRight.vue';
-    
 
-    let $stackForward, $stackBack;
+    let $stackForward,
+        $stackBack;
     export default {
         components: {
             GridLayout: VueGridLayout.GridLayout,
@@ -102,10 +102,10 @@
             BusiComLayout,
             BusiMouseRight
         },
-        directives: { 
-            Clickoutside 
+        directives: {
+            Clickoutside
         },
-        data(){
+        data() {
             return {
                 verticalCompact: true,
                 uiLayout: [],
@@ -150,7 +150,7 @@
                         type: 'warning'
                     });
                 }
-                    
+
                 const comSchema = cloneForce(schema[res.name]);
                 // i 为唯一表示符
                 res.i = `fixed_${res.name}-${this.uiLayout.length + 1}`;
@@ -196,7 +196,7 @@
             });
             // 操作layout
             this.$bus.on('operate-Layout', (res) => {
-                switch(res) {
+                switch (res) {
                 case 'previous':
                     this.handlerPrevious();
                     break;
@@ -243,21 +243,21 @@
                 this.setPageData(setting);
                 // 组装数据
                 const obj = {
-                    'button': () => import('@/materials/fixed/button'),
-                    'doubleButton': () => import('@/materials/fixed/doubleButton'),
-                    'swiper': () => import('@/materials/base/swiper'),
-                    'singleImage': () => import('@/materials/base/singleImage'),
-                    'doubleImage': () => import('@/materials/base/doubleImage'),
-                    'video': () => import('@/materials/base/video'),
-                    'title': () => import('@/materials/base/title'),
-                    'split': () => import('@/materials/base/split'),
-                    'textSplit': () => import('@/materials/base/textSplit'),
-                    'text': () => import('@/materials/base/text')
+                    button: () => import('@/materials/fixed/button'),
+                    doubleButton: () => import('@/materials/fixed/doubleButton'),
+                    swiper: () => import('@/materials/base/swiper'),
+                    singleImage: () => import('@/materials/base/singleImage'),
+                    doubleImage: () => import('@/materials/base/doubleImage'),
+                    video: () => import('@/materials/base/video'),
+                    title: () => import('@/materials/base/title'),
+                    split: () => import('@/materials/base/split'),
+                    textSplit: () => import('@/materials/base/textSplit'),
+                    text: () => import('@/materials/base/text')
                 };
                 const material = data?.content?.material || [];
                 this.uiLayout = material.map((item, index) => ({
-                    id: index, 
-                    app: obj[item.name], 
+                    id: index,
+                    app: obj[item.name],
                     i: item.i,
                     x: item.x,
                     y: item.y,
@@ -274,8 +274,8 @@
 
                 const fixedMaterial = data?.content?.fixed_material || [];
                 this.fixLayout = fixedMaterial.map((item, index) => ({
-                    id: index, 
-                    app: obj[item.name], 
+                    id: index,
+                    app: obj[item.name],
                     i: item.i,
                     x: item.x,
                     y: item.y,
@@ -289,8 +289,8 @@
             },
             rightClickHandler(item, e) {
                 this.uniqueKey = item.i;
-                this.left = e.clientX + 'px';
-                this.top = e.clientY + 'px';
+                this.left = `${e.clientX}px`;
+                this.top = `${e.clientY}px`;
                 this.ishowMouse = true;
             },
             handleClickOutside() {
@@ -306,8 +306,8 @@
                 } else {
                     const index = this.fixLayout.findIndex(item => item.i === key);
                     this.fixLayout.splice(index, 1);
-                }  
-                this.setShowDrawer(false);              
+                }
+                this.setShowDrawer(false);
             },
             handlerCopy(index) {
                 const arr = this.uiLayout.filter(item => item.i === index);
@@ -319,15 +319,13 @@
                 const comSchema = cloneForce(schema[res.name]);
                 // i 为唯一表示符
                 res.i = `${res.name}-${this.uiLayout.length + 1}`;
-                
-                const y = this.uiLayout.reduce(function(total, current) {
-                    return total += current.h;
-                }, 0);
+
+                const y = this.uiLayout.reduce((total, current) => total += current.h, 0);
 
                 this.uiLayout.push({
                     i: res.i,
                     x: res.x,
-                    y: y,
+                    y,
                     w: res.w,
                     h: res.h,
                     name: res.name,
@@ -358,7 +356,7 @@
                     const uiLayout = $stackForward.pop();
                     if ($stackForward.peek()) {
                         this.uiLayout = $stackForward.peek();
-                        $stackBack.push(uiLayout);  
+                        $stackBack.push(uiLayout);
                     }
                 }
             },
@@ -368,7 +366,7 @@
                 const uiLayout = $stackBack.pop();
                 if (uiLayout) {
                     this.uiLayout = uiLayout;
-                    $stackForward.push(uiLayout);  
+                    $stackForward.push(uiLayout);
                 }
             },
             // 设置队列数据

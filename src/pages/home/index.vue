@@ -37,10 +37,10 @@
                     </div>
                 </div>
                 <div class="right">
-                    <svg 
-                        viewBox="0 0 660 430" 
-                        class="d2 k8 k9 ka kb jt" 
-                        style=" 
+                    <svg
+                        viewBox="0 0 660 430"
+                        class="d2 k8 k9 ka kb jt"
+                        style="
                             width:660px;
                             height:430px;
                             pointer-events:none;
@@ -301,7 +301,7 @@
     background: url('../../assets/img/banner2.jpg') no-repeat;
     background-size: cover;
     // forwards当动画完成后，保持最后一帧的状态
-    animation: fade-away 2.5s linear forwards;
+    animation: fade-away 4.5s linear forwards;
 }
 .text{
     position: absolute;
@@ -313,10 +313,10 @@
     top: 50%;
     transform: translate(-50%,-50%);
     opacity: 0;
-    animation: show 2s cubic-bezier(.74,-0.1,.86,.83) forwards;
+    animation: show 4s cubic-bezier(.74,-0.1,.86,.83) forwards;
     cursor: pointer;
 }
-    
+
 @keyframes fade-away {    //背景图的明暗度动画
     30%{
         filter: brightness(1);
@@ -391,7 +391,7 @@
             background: #ffab40;
             padding: 10px 30px;
             border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(50,50,50,10%), 0 1px 3px rgba(255,255,255,10%);; 
+            box-shadow: 0 4px 6px rgba(50,50,50,10%), 0 1px 3px rgba(255,255,255,10%);;
             color: #fff;
             font-size: 20px;
             width: 205px;

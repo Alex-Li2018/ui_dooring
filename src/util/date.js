@@ -1,4 +1,3 @@
-
 // 格式化日期的工具库,新增了格式化星期
 const toInt = Symbol('toInt');
 const toDate = Symbol('toDate');
@@ -148,7 +147,7 @@ class FormatDate extends Date {
 
     // 输出: 今日/ 昨日/ 前天/ 以及 年月日
     formatToday(fmt = 'yyyy-MM-dd', options = {}) {
-        const{
+        const {
             beforeYesterday = true,
             yesterday = true,
             tomorrow = true,
@@ -165,11 +164,11 @@ class FormatDate extends Date {
     formateIMTime() {
         if (!this.isYear()) {
             return this.formatDate('yyyy年MM月dd日 hh:mm');
-        } else if (this.isToday()) {
+        } if (this.isToday()) {
             return this.formatDate('hh:mm');
-        } else {
-            return this.formatDate('MM月dd日 hh:mm');
         }
+        return this.formatDate('MM月dd日 hh:mm');
+
     }
 
     // 日期是否相等

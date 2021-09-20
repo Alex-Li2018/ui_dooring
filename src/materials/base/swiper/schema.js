@@ -1,10 +1,10 @@
 export default {
-    config:{
+    config: {
         items: [
             {
                 id: 1,
                 src: 'http://imgcdnstatic.top/image_1624456129895',
-                schemaUrl: '' 
+                schemaUrl: ''
             },
             {
                 id: 2,
@@ -18,7 +18,7 @@ export default {
             }
         ],
     },
-    editorData:[
+    editorData: [
         {
             type: 'SwiperUpload',
             field: 'items',
@@ -27,7 +27,7 @@ export default {
                 {
                     id: 1,
                     src: 'http://imgcdnstatic.top/image_1624456129895',
-                    schemaUrl: '' 
+                    schemaUrl: ''
                 },
                 {
                     id: 2,

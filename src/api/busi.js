@@ -1,4 +1,6 @@
-import { get, put, post, deleteReq } from '@/util/http';
+import {
+    get, put, post, deleteReq
+} from '@/util/http';
 
 const pageList = params => get('/pages', params);
 // 获取详情

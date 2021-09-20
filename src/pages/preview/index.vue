@@ -1,7 +1,5 @@
 <template>
-    <div class="preview_wrap">
-
-    </div>
+    <div class="preview_wrap" />
 </template>
 
 <script>
@@ -10,6 +8,6 @@
 
 <style lang="scss" scoped>
 .preview_wrap {
-    
+
 }
 </style>

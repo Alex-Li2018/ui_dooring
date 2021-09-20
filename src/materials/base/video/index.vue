@@ -74,7 +74,7 @@
             handlerControl() {
                 const video = this.$refs['x-video'];
                 if (video.paused) {
-                    video.play(); 
+                    video.play();
                     this.ispaused = false;
                     this.iscontrol = true;
                 } else {

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+// eslint-disable-next-line import/no-cycle
 import setting from './module/setting';
 import editor from './module/editor';
 

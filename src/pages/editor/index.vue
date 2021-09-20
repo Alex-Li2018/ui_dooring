@@ -19,7 +19,7 @@
     </div>
 </template>
 
-<script> 
+<script>
     import BusiHeader from './components/BusiHeader.vue';
     import BusiComponentsDrawer from './components/BusiComponentsDrawer.vue';
     import BusiCanvasScreen from './components/BusiCanvasScreen.vue';
@@ -36,7 +36,7 @@
             return {
             };
         },
-        methods: {            
+        methods: {
         }
     };
 </script>
@@ -45,7 +45,7 @@
 .editor-page_wrap {
     width: 100%;
     height: 100vh;
-    
+
     .content-box {
         height: 100vh;
         width: 100%;

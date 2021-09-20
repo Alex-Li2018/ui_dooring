@@ -1,11 +1,11 @@
 export default {
-    config:{
+    config: {
         srcLeft: 'http://imgcdnstatic.top/image_1624455482931',
         schemaUrlLeft: '',
         srcRight: 'http://imgcdnstatic.top/image_1624455627345',
         schemaUrlRight: ''
     },
-    editorData:[
+    editorData: [
         {
             type: 'ImgUpload',
             field: 'srcLeft',

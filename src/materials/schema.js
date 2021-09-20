@@ -9,7 +9,7 @@ import textSplit from './base/textSplit/schema';
 import text from './base/text/schema';
 import blank from './base/blank/schema';
 // 固定组件
-import button from  './fixed/button/schema';
+import button from './fixed/button/schema';
 import doubleButton from './fixed/doubleButton/schema';
 
 export default {

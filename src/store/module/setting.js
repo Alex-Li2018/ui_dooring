@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import userApi from '@/api/user';
-import { removeToken, setToken } from '@/util/cookie'; 
+import { removeToken, setToken } from '@/util/cookie';
 import cache from '@/util/cache';
 
 const state = {
@@ -24,7 +24,7 @@ const actions = {
             try {
                 removeToken();
                 resolve();
-            } catch(err) {
+            } catch (err) {
                 reject(err);
             }
         });

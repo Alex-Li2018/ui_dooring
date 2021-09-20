@@ -1,5 +1,5 @@
 export default {
-    config:{
+    config: {
         backgroundColorLeft: '#0AC599',
         fontSizeLeft: 16,
         colorLeft: '#fff',
@@ -14,7 +14,7 @@ export default {
         textRight: '右边按钮',
         schemaUrlRight: ''
     },
-    editorData:[
+    editorData: [
         // 背景色
         {
             type: 'ColorPicker',
@@ -34,17 +34,17 @@ export default {
         },
         // 字体
         {
-            type: "InputNumber",
-            field: "fontSizeLeft",
-            title: "字体左",
+            type: 'InputNumber',
+            field: 'fontSizeLeft',
+            title: '字体左',
             value: 16,
             emit: ['change'],
             emitPrefix: 'fs-left'
         },
         {
-            type: "InputNumber",
-            field: "fontSizeRight",
-            title: "字体右",
+            type: 'InputNumber',
+            field: 'fontSizeRight',
+            title: '字体右',
             value: 16,
             emit: ['change'],
             emitPrefix: 'fs-right'

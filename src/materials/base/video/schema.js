@@ -1,9 +1,9 @@
 export default {
-    config:{
+    config: {
         src: 'http://imgcdnstatic.top/image_1624456710477',
         poster: 'http://imgcdnstatic.top/image_1624456628188'
     },
-    editorData:[
+    editorData: [
         {
             type: 'videoUpload',
             field: 'src',

@@ -23,7 +23,7 @@
         data() {
             return {
                 content: '',
-                quillOption: quillOption
+                quillOption
             };
         },
         watch: {

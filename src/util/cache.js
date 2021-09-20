@@ -47,4 +47,3 @@ class localStorage {
 const cache = new Store(new localStorage());
 
 export default cache;
-

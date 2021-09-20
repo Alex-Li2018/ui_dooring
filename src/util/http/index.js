@@ -107,9 +107,7 @@ export function axiosReqest(
     timeout && (reqOpts.timeout = timeout);
     switch (method.toUpperCase()) {
     case 'GET':
-        reqOpts.params = Object.assign({
-            time: Date.now()
-        }, params);
+        reqOpts.params = { time: Date.now(), ...params };
         break;
     case 'PUT':
     case 'DELETE':
@@ -119,16 +117,14 @@ export function axiosReqest(
     case 'PATCH':
         reqOpts.data = isFormData
             ? params
-            : Object.assign({}, params);
+            : ({ ...params });
         break;
     default:
         break;
     }
 
     return instance(reqOpts)
-        .then(response => {
-            return onFulfilled(response);
-        })
+        .then(response => onFulfilled(response))
         .catch(err => Promise.reject(err));
 }
 
@@ -163,6 +159,6 @@ export default {
     post,
     put,
     patch,
-    deleteReq: deleteReq,
+    deleteReq,
     request: instance
 };

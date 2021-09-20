@@ -1,5 +1,5 @@
 export default {
-    config:{
+    config: {
         backgroundColor: '#1478FF',
         width: 190,
         height: 42,
@@ -10,7 +10,7 @@ export default {
         text: '一个按钮',
         schemaUrl: ''
     },
-    editorData:[
+    editorData: [
         {
             type: 'ColorPicker',
             field: 'backgroundColor',
@@ -44,9 +44,9 @@ export default {
             emitPrefix: 'line-height'
         },
         {
-            type: "InputNumber",
-            field: "fontSize",
-            title: "字体",
+            type: 'InputNumber',
+            field: 'fontSize',
+            title: '字体',
             value: 16,
             emit: ['change'],
             emitPrefix: 'fs'

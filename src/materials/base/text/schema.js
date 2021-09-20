@@ -1,8 +1,8 @@
 export default {
-    config:{
+    config: {
         content: '<p>我是富文本,请输入内容</p>'
     },
-    editorData:[
+    editorData: [
         {
             type: 'richEditor',
             field: 'content',

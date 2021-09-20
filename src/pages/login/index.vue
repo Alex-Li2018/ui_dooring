@@ -51,18 +51,22 @@
                 rules: {
                     name: [
                         { required: true, message: '请输入用户名', trigger: 'blur' },
-                        { min: 0, max: 60, message: '长度在 60个字符', trigger: 'blur' }
+                        {
+                            min: 0, max: 60, message: '长度在 60个字符', trigger: 'blur'
+                        }
                     ],
                     password: [
                         { required: true, message: '请输入密码', trigger: 'blur' },
-                        { min: 0, max: 60, message: '长度在 60个字符', trigger: 'blur' }
+                        {
+                            min: 0, max: 60, message: '长度在 60个字符', trigger: 'blur'
+                        }
                     ]
                 }
             };
         },
         methods: {
             submitForm() {
-                this.$refs['ruleForm'].validate(async (valid) => {
+                this.$refs.ruleForm.validate(async (valid) => {
                     if (valid) {
                         this.$store.dispatch('setting/login', this.ruleForm).then(res => {
                             if (res.code === 200) {
@@ -84,7 +88,7 @@
 .login_wrap {
    width: 100%;
    height: 100vh;
-   background: url('../../assets/img/login.png'); 
+   background: url('../../assets/img/login.png');
    background-size: cover;
    display: flex;
    justify-content: center;

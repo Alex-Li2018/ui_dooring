@@ -88,9 +88,9 @@
             userInfo() {
                 if (this.$store.state.setting?.userInfo?.id) {
                     return this.$store.state.setting.userInfo;
-                } else {
-                    return cache.get('userInfo');
                 }
+                return cache.get('userInfo');
+
             }
         },
         methods: {
@@ -99,22 +99,23 @@
             },
             async save() {
                 let res = {};
-                const pageData = this.$store.state.editor.pageData;
+                const { pageData } = this.$store.state.editor;
                 if (this.$route.query.id) {
                     // 组装存入数据的格式
                     res = await busiApi.updatePage(
-                        this.$route.query.id, 
-                        { 
+                        this.$route.query.id,
+                        {
                             name: pageData.setting.page_name,
-                            content: pageData  
-                        });
+                            content: pageData
+                        }
+                    );
                 } else {
-                    res = await busiApi.createPage({ 
+                    res = await busiApi.createPage({
                         name: pageData.setting.page_name,
-                        content: pageData 
+                        content: pageData
                     });
                 }
-                
+
                 res.code === 200 && this.$notify({
                     title: '成功',
                     message: '保存成功!',
@@ -131,10 +132,10 @@
                 this.$bus.emit('operate-Layout', 'clear');
             },
             preview() {
-                
+
             },
             handleCommand(command) {
-                switch(command) {
+                switch (command) {
                 case 'me':
                     this.$router.push({
                         path: '/me'
@@ -151,7 +152,7 @@
                     break;
                 default:
                     break;
-                }          
+                }
             },
             handlerGoLogin() {
                 this.$router.replace({

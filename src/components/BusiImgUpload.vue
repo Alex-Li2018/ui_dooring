@@ -14,7 +14,7 @@
             v-model="input"
             placeholder="请输入内容"
             :class="{
-                'border': errTip 
+                'border': errTip
             }"
             @change="handlerInputChange"
         >

@@ -27,8 +27,8 @@
             return {
                 componentsBase: [
                     {
-                        id: 1, 
-                        app: () => import(`@/materials/base/swiper`), 
+                        id: 1,
+                        app: () => import('@/materials/base/swiper'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -39,8 +39,8 @@
                         category: 'base'
                     },
                     {
-                        id: 2, 
-                        app: () => import(`@/materials/base/singleImage`), 
+                        id: 2,
+                        app: () => import('@/materials/base/singleImage'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -51,8 +51,8 @@
                         category: 'base'
                     },
                     {
-                        id: 3, 
-                        app: () => import(`@/materials/base/doubleImage`), 
+                        id: 3,
+                        app: () => import('@/materials/base/doubleImage'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -63,8 +63,8 @@
                         category: 'base'
                     },
                     {
-                        id: 4, 
-                        app: () => import(`@/materials/base/video`), 
+                        id: 4,
+                        app: () => import('@/materials/base/video'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -75,8 +75,8 @@
                         category: 'base'
                     },
                     {
-                        id: 5, 
-                        app: () => import(`@/materials/base/title`), 
+                        id: 5,
+                        app: () => import('@/materials/base/title'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -87,8 +87,8 @@
                         category: 'base'
                     },
                     {
-                        id: 6, 
-                        app: () => import(`@/materials/base/split`), 
+                        id: 6,
+                        app: () => import('@/materials/base/split'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -99,8 +99,8 @@
                         category: 'base'
                     },
                     {
-                        id: 7, 
-                        app: () => import(`@/materials/base/textSplit`), 
+                        id: 7,
+                        app: () => import('@/materials/base/textSplit'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -111,8 +111,8 @@
                         category: 'base'
                     },
                     {
-                        id: 8, 
-                        app: () => import(`@/materials/base/text`), 
+                        id: 8,
+                        app: () => import('@/materials/base/text'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -123,8 +123,8 @@
                         category: 'base'
                     },
                     {
-                        id: 9, 
-                        app: () => import(`@/materials/base/blank`), 
+                        id: 9,
+                        app: () => import('@/materials/base/blank'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -137,8 +137,8 @@
                 ],
                 componentsFixed: [
                     {
-                        id: 1, 
-                        app: () => import(`@/materials/fixed/button`), 
+                        id: 1,
+                        app: () => import('@/materials/fixed/button'),
                         i: '',
                         x: 0,
                         y: 0,
@@ -149,8 +149,8 @@
                         category: 'fixed'
                     },
                     {
-                        id: 2, 
-                        app: () => import(`@/materials/fixed/doubleButton`), 
+                        id: 2,
+                        app: () => import('@/materials/fixed/doubleButton'),
                         i: '',
                         x: 0,
                         y: 0,

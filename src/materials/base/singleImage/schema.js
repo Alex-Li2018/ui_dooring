@@ -1,9 +1,9 @@
 export default {
-    config:{
+    config: {
         src: 'http://imgcdnstatic.top/image_1624454703071',
         schemaUrl: ''
     },
-    editorData:[
+    editorData: [
         {
             type: 'ImgUpload',
             field: 'src',

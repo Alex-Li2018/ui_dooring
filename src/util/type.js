@@ -1,10 +1,10 @@
-const toString = Object.prototype.toString;
+const { toString } = Object.prototype;
 
 export default function type(x, strict = false) {
     strict = !!strict;
 
     // fix typeof null = object
-    if(x === null){
+    if (x === null) {
         return 'null';
     }
 
@@ -16,7 +16,7 @@ export default function type(x, strict = false) {
     }
 
     // number string boolean undefined symbol
-    if(t !== 'object'){
+    if (t !== 'object') {
         return t;
     }
 
@@ -25,12 +25,12 @@ export default function type(x, strict = false) {
     try {
         cls = toString.call(x).slice(8, -1);
         clsLow = cls.toLowerCase();
-    } catch(e) {
+    } catch (e) {
         // ie下的 activex对象
         return 'object';
     }
 
-    if(clsLow !== 'object'){
+    if (clsLow !== 'object') {
         if (strict) {
             // 区分NaN和new Number
             if (clsLow === 'number' && isNaN(x)) {
@@ -44,7 +44,7 @@ export default function type(x, strict = false) {
         return clsLow;
     }
 
-    if(x.constructor == Object){
+    if (x.constructor == Object) {
         return clsLow;
     }
 
@@ -54,7 +54,7 @@ export default function type(x, strict = false) {
         if (Object.getPrototypeOf(x) === null || x.__proto__ === null) {
             return 'object';
         }
-    } catch(e) {
+    } catch (e) {
         // ie下无Object.getPrototypeOf会报错
     }
 
@@ -65,7 +65,7 @@ export default function type(x, strict = false) {
         if (typeof cname === 'string') {
             return cname;
         }
-    } catch(e) {
+    } catch (e) {
         // 无constructor
     }
 

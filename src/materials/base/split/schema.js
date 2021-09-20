@@ -1,8 +1,8 @@
 export default {
-    config:{
+    config: {
         backgroundColor: '#BFC2CC'
     },
-    editorData:[
+    editorData: [
         {
             type: 'ColorPicker',
             field: 'backgroundColor',

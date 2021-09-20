@@ -11,42 +11,40 @@ export const constantRoutes = [
     },
     {
         path: '/home',
-        component: () => import('@/pages/home'),
+        component: () => import('@/pages/home/index.vue'),
         hidden: true
     },
     {
         path: '/editor',
-        component: () => import('@/pages/editor'),
+        component: () => import('@/pages/editor/index.vue'),
         hidden: true
     },
     {
         path: '/login',
-        component: () => import('@/pages/login'),
+        component: () => import('@/pages/login/index.vue'),
         hidden: true
     },
     {
         path: '/me',
-        component: () => import('@/pages/me'),
+        component: () => import('@/pages/me/index.vue'),
         hidden: true
     },
 ];
 
-const createRouter = () => {
-    return new Router({
-        mode: 'history',
-        scrollBehavior (to, from, savedPosition) {
-            if (savedPosition) {
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve(savedPosition);
-                    }, 1600);
-                });
-            }
-            return { x: 0, y: 0 };
-        },
-        routes: constantRoutes
-    });
-};
+const createRouter = () => new Router({
+    mode: 'history',
+    scrollBehavior (to, from, savedPosition) {
+        if (savedPosition) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(savedPosition);
+                }, 1600);
+            });
+        }
+        return { x: 0, y: 0 };
+    },
+    routes: constantRoutes
+});
 
 const router = createRouter();
 

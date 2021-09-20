@@ -1,9 +1,9 @@
 export default {
-    config:{
+    config: {
         backgroundColor: '#fff',
         height: 40,
     },
-    editorData:[
+    editorData: [
         {
             type: 'ColorPicker',
             field: 'backgroundColor',

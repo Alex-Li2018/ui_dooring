@@ -11,9 +11,9 @@
         >
             删除
         </div>
-        <div 
-            @click="Handlercopy" 
+        <div
             class="react-contexify-item"
+            @click="Handlercopy"
         >
             复制
         </div>

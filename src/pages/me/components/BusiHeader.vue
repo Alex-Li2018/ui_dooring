@@ -39,9 +39,9 @@
             userInfo() {
                 if (this.$store.state.setting.userInfo.id) {
                     return this.$store.state.setting.userInfo;
-                } else {
-                    return cache.get('userInfo');
                 }
+                return cache.get('userInfo');
+
             }
         },
         methods: {

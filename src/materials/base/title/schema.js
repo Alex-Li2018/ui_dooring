@@ -1,5 +1,5 @@
 export default {
-    config:{
+    config: {
         lineHeight: 30,
         fontSize: 22,
         color: '#303133',
@@ -8,7 +8,7 @@ export default {
         textAlign: 'center',
         schemaUrl: ''
     },
-    editorData:[
+    editorData: [
         {
             type: 'InputNumber',
             field: 'lineHeight',
@@ -18,9 +18,9 @@ export default {
             emitPrefix: 'lineHeight'
         },
         {
-            type: "InputNumber",
-            field: "fontSize",
-            title: "字体",
+            type: 'InputNumber',
+            field: 'fontSize',
+            title: '字体',
             value: 22,
             emit: ['change'],
             emitPrefix: 'fs'
@@ -55,9 +55,9 @@ export default {
             title: '对齐方式',
             value: 'center',
             options: [
-                {"value": "center", "label": "居中对齐", "disabled": false},
-                {"value": "left", "label": "左对齐", "disabled": false},
-                {"value": "right", "label": "右对齐", "disabled": false},
+                { value: 'center', label: '居中对齐', disabled: false },
+                { value: 'left', label: '左对齐', disabled: false },
+                { value: 'right', label: '右对齐', disabled: false },
             ],
             emit: ['change'],
             emitPrefix: 'text-align'
