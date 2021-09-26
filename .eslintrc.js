@@ -56,9 +56,10 @@ module.exports = {
     },
     // add your custom rules here
     rules: {
-    // 风格指南
-    // 指定数组的元素之间要以空格隔开(, 后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格
+        // 风格指南
+        // 指定数组的元素之间要以空格隔开(, 后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格
         'array-bracket-spacing': [2, 'never'],
+        'linebreak-style': [0, 'error', 'unix'],
         // 强制使用一致的缩进 第二个参数为 "tab" 时，会使用tab，
         // if while function 后面的{必须与if在同一行，java风格。
         indent: ['error', 4],
