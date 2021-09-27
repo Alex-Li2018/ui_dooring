@@ -1,14 +1,3 @@
-/**
- *
-            clone	cloneJSON	cloneLoop	cloneForce
-    难度	  ☆☆	☆	       ☆☆☆	     ☆☆☆☆
-    兼容性	   ie6	  ie8	      ie6	      ie6
-    循环引用   一层	  不支持	   一层	       支持
-    栈溢出	   会	  会	      不会	      不会
-    保持引用   否	  否	      否	      是
-    适合场景   一般数据拷贝	一般数据拷贝	层级很多	保持引用关系
- */
-
 import type from './type';
 
 // Object.create(null) 的对象，没有hasOwnProperty方法
@@ -32,12 +21,13 @@ export function clone(x) {
 
     if (t === 'array') {
         res = [];
-        for (let i = 0; i < x.length; i++) {
+        for (let i = 0; i < x.length; i += 1) {
             // 避免一层死循环 a.b = a
             res[i] = x[i] === x ? res : clone(x[i]);
         }
     } else if (t === 'object') {
         res = {};
+        // eslint-disable-next-line no-restricted-syntax
         for (const key in x) {
             if (hasOwnProp(x, key)) {
                 // 避免一层死循环 a.b = a
@@ -63,7 +53,7 @@ export function cloneJSON(x, errOrDef = true) {
                 // ie8无console
                 console.error(`cloneJSON error: ${e.message}`);
                 // eslint-disable-next-line no-empty
-            } catch (e) {}
+            } catch {}
             return errOrDef;
         }
     }
@@ -101,11 +91,12 @@ export function cloneLoop(x) {
         // 初始化赋值目标，key为undefined则拷贝到父元素，否则拷贝到子元素
         let res = parent;
         if (typeof key !== 'undefined') {
+            // eslint-disable-next-line no-multi-assign
             res = parent[key] = tt === 'array' ? [] : {};
         }
 
         if (tt === 'array') {
-            for (let i = 0; i < data.length; i++) {
+            for (let i = 0; i < data.length; i += 1) {
                 // 避免一层死循环 a.b = a
                 if (data[i] === data) {
                     res[i] = res;
@@ -121,6 +112,7 @@ export function cloneLoop(x) {
                 }
             }
         } else if (tt === 'object') {
+            // eslint-disable-next-line no-restricted-syntax
             for (const k in data) {
                 if (hasOwnProp(data, k)) {
                     // 避免一层死循环 a.b = a
@@ -151,15 +143,18 @@ function SimpleWeakmap () {
     this.cacheArray = [];
 }
 
+// eslint-disable-next-line func-names
 SimpleWeakmap.prototype.set = function(key, value) {
     this.cacheArray.push(key);
     key[UNIQUE_KEY] = value;
 };
+// eslint-disable-next-line func-names
 SimpleWeakmap.prototype.get = function(key) {
     return key[UNIQUE_KEY];
 };
+// eslint-disable-next-line func-names
 SimpleWeakmap.prototype.clear = function() {
-    for (let i = 0; i < this.cacheArray.length; i++) {
+    for (let i = 0; i < this.cacheArray.length; i += 1) {
         const key = this.cacheArray[i];
         delete key[UNIQUE_KEY];
     }
@@ -168,9 +163,9 @@ SimpleWeakmap.prototype.clear = function() {
 
 function getWeakMap() {
     let result;
-    if (typeof WeakMap !== 'undefined' && type(WeakMap) == 'function') {
+    if (typeof WeakMap !== 'undefined' && type(WeakMap) === 'function') {
         result = new WeakMap();
-        if (type(result) == 'weakmap') {
+        if (type(result) === 'weakmap') {
             return result;
         }
     }
@@ -212,6 +207,7 @@ export function cloneForce(x) {
         // 初始化赋值目标，key为undefined则拷贝到父元素，否则拷贝到子元素
         let target = parent;
         if (typeof key !== 'undefined') {
+            // eslint-disable-next-line no-multi-assign
             target = parent[key] = tt === 'array' ? [] : {};
         }
 
@@ -221,6 +217,7 @@ export function cloneForce(x) {
             const uniqueTarget = uniqueData.get(source);
             if (uniqueTarget) {
                 parent[key] = uniqueTarget;
+                // eslint-disable-next-line no-continue
                 continue; // 中断本次循环
             }
 
@@ -229,7 +226,7 @@ export function cloneForce(x) {
         }
 
         if (tt === 'array') {
-            for (let i = 0; i < source.length; i++) {
+            for (let i = 0; i < source.length; i += 1) {
                 if (isClone(source[i])) {
                     // 下一次循环
                     loopList.push({
@@ -242,8 +239,10 @@ export function cloneForce(x) {
                 }
             }
         } else if (tt === 'object') {
+            // eslint-disable-next-line no-restricted-syntax
             for (const k in source) {
                 if (hasOwnProp(source, k)) {
+                    // eslint-disable-next-line no-continue
                     if (k === UNIQUE_KEY) continue;
                     if (isClone(source[k])) {
                         // 下一次循环

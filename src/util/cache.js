@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 const PREFIX = 'cache_';
 
 class Store {
@@ -22,7 +23,7 @@ class Store {
     }
 }
 
-class localStorage {
+class LocalStorage {
     constructor() {
         this.store = window.localStorage;
     }
@@ -44,6 +45,6 @@ class localStorage {
     }
 }
 
-const cache = new Store(new localStorage());
+const cache = new Store(new LocalStorage());
 
 export default cache;
