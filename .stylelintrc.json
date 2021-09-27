@@ -5,9 +5,9 @@
     ],
     "rules": {
         "indentation": [ 4, { "baseIndentLevel": 1 } ],
-        "unit-allowed-list": ["em", "rem", "%", "s", "rpx", "vw", "vh", "ms", "deg"],
+        "unit-allowed-list": ["em", "rem", "%", "s", "px", "vw", "vh", "ms", "deg"],
         "unit-no-unknown": [true, {
-            "ignoreUnits": ["rpx"]
+            "ignoreUnits": ["px"]
         }]
     }
 }
