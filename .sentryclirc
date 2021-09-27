@@ -1,0 +1,7 @@
+[defaults]
+url = https://sentry.io/
+org = 408062778979
+project = 408062778979
+
+[auth]
+token = 2978b560feef445bb9da5a7a9581c4984797fd00cba64deab06770659c431bcb

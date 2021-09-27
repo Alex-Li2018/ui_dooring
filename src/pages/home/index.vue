@@ -30,10 +30,9 @@
     export default {
         methods: {
             jumpUrl() {
-                // this.$router.push({
-                //     path: '/editor'
-                // });
-                throw new Error('Parameter is not a number!');
+                this.$router.push({
+                    path: '/editor'
+                });
             },
             jumplink() {
                 window.open('https://beian.miit.gov.cn');

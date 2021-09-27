@@ -1,5 +1,5 @@
 const env = process.env.NODE_ENV;
-const VERSION = 'v1.0';
+const VERSION = process.env.RELEASE_VERSION;
 
 // 通用配置
 const common = {

@@ -1,4 +1,5 @@
 const path = require('path');
+const SentryPlugin = require('@sentry/webpack-plugin');
 
 module.exports = {
     publicPath: '/',
@@ -33,6 +34,15 @@ module.exports = {
                 '@': path.resolve(__dirname, './src')
             }
         },
+        plugins: [
+            // ...省略一堆
+            new SentryPlugin({
+                include: './dist',
+                release: process.env.RELEASE_VERSION,
+                configFile: 'sentry.properties',
+                urlPrefix: '~/'
+            })
+        ]
         // module: {
         //     rules: [
         //         {
